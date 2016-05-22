@@ -1,0 +1,21 @@
+{
+  "resources": {
+    "head": [
+      {
+        "type": "script",
+        "src": "./build/app.js"
+      }
+    ],
+    "body": []
+  },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+  }
+}
