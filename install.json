@@ -17,5 +17,14 @@
     ]
   },
   "options": {
+    "properties": {
+      "location": {
+        "order": 1,
+        "name": "Location",
+        "type": "string",
+        "format": "selector",
+        "default": "p, blockquote"
+      }
+    }
   }
 }
