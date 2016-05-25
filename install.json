@@ -2,6 +2,10 @@
   "resources": {
     "head": [
       {
+        "type": "style",
+        "src": "app.css"
+      },
+      {
         "type": "script",
         "src": "./build/app.js"
       }
@@ -18,12 +22,63 @@
   },
   "options": {
     "properties": {
-      "location": {
+      "selectors": {
         "order": 1,
-        "name": "Location",
-        "type": "string",
-        "format": "selector",
-        "default": "p, blockquote"
+        "title": "Elements",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "selector": {
+              "order": 1,
+              "title": "Selector",
+              "description": "Select the element you would like to make readable.",
+              "type": "string",
+              "format": "selector"
+            }
+          }
+        },
+        "default": [
+          {
+            "selector": "address"
+          },
+          {
+            "selector": "blockquote"
+          },
+          {
+            "selector": "footer"
+          },
+          {
+            "selector": "h1"
+          },
+          {
+            "selector": "h2"
+          },
+          {
+            "selector": "h3"
+          },
+          {
+            "selector": "h4"
+          },
+          {
+            "selector": "h5"
+          },
+          {
+            "selector": "h6"
+          },
+          {
+            "selector": "header"
+          },
+          {
+            "selector": "li"
+          },
+          {
+            "selector": "q"
+          },
+          {
+            "selector": "p"
+          }
+        ]
       }
     }
   }
