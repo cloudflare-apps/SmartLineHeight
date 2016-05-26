@@ -22,8 +22,17 @@
   },
   "options": {
     "properties": {
+      "advancedOptions": {
+        "order": 1,
+        "title": "Show advanced options",
+        "type": "boolean",
+        "default": false
+      },
       "selectors": {
         "order": 1,
+        "showIf": {
+          "advancedOptions": true
+        },
         "title": "Elements",
         "type": "array",
         "items": {
