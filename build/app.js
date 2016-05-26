@@ -8,6 +8,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var PHI = (1 + Math.sqrt(5)) / 2; // 1.61803398874989 or "The Golden Ratio"
   var PHI_PRIME = 1 / (2 * PHI);
 
+  var loadingStyle = document.createElement("style");
+
+  loadingStyle.innerHTML = "\n    body, body * {\n      color: transparent !important;\n    }\n  ";
+
   var previousElements = [];
   var options = INSTALL_OPTIONS;
 
@@ -36,18 +40,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       element.style.lineHeight = calcBaseLineHeight(fontSize, element.clientWidth);
     });
 
-    document.body.setAttribute("data-eager-readable-state", "loaded");
+    loadingStyle.parentNode && loadingStyle.parentNode.removeChild(loadingStyle);
   }
 
-  function bootstrap() {
-    document.body.setAttribute("data-eager-readable-state", "loading");
-  }
+  document.head.appendChild(loadingStyle);
 
   if (document.readyState === "loading") {
     window.addEventListener("load", updateElements);
-    document.addEventListener("DOMContentLoaded", bootstrap);
   } else {
-    bootstrap();
     updateElements();
   }
 

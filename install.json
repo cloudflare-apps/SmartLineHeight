@@ -2,10 +2,6 @@
   "resources": {
     "head": [
       {
-        "type": "style",
-        "src": "app.css"
-      },
-      {
         "type": "script",
         "src": "./build/app.js"
       }

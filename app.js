@@ -4,6 +4,14 @@
   const PHI = (1 + Math.sqrt(5)) / 2 // 1.61803398874989 or "The Golden Ratio"
   const PHI_PRIME = 1 / (2 * PHI)
 
+  const loadingStyle = document.createElement("style")
+
+  loadingStyle.innerHTML = `
+    body, body * {
+      color: transparent !important;
+    }
+  `
+
   let previousElements = []
   let options = INSTALL_OPTIONS
 
@@ -32,19 +40,15 @@
       element.style.lineHeight = calcBaseLineHeight(fontSize, element.clientWidth)
     })
 
-    document.body.setAttribute("data-eager-readable-state", "loaded")
+    loadingStyle.parentNode && loadingStyle.parentNode.removeChild(loadingStyle)
   }
 
-  function bootstrap() {
-    document.body.setAttribute("data-eager-readable-state", "loading")
-  }
+  document.head.appendChild(loadingStyle)
 
   if (document.readyState === "loading") {
     window.addEventListener("load", updateElements)
-    document.addEventListener("DOMContentLoaded", bootstrap)
   }
   else {
-    bootstrap()
     updateElements()
   }
 
