@@ -2,10 +2,6 @@
   "resources": {
     "head": [
       {
-        "type": "style",
-        "src": "./app.css"
-      },
-      {
         "type": "script",
         "src": "./build/app.js"
       }
@@ -13,7 +9,22 @@
     "body": []
   },
   "preview": {
-    "handlers": []
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
   },
-  "options": {}
+  "options": {
+    "properties": {
+      "showPreview": {
+        "type": "boolean",
+        "order": 0,
+        "title": "Toggle preview visibility",
+        "description": "This will only toggle the visibility of SmartLineHeight in the preview you see during app installation.",
+        "default": true
+      }
+    }
+  }
 }
