@@ -1,7 +1,7 @@
 {
-  "name": "eager-readable",
+  "name": "eager-smart-line-height",
   "version": "0.0.0",
-  "description": "Readable text [Eager](https://eager.io).",
+  "description": "Make your website a breeze to read [Eager](https://eager.io).",
   "main": "app.js",
   "scripts": {
     "watch:js": "babel --watch --out-dir build app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EagerApps/Readable.git"
+    "url": "git+https://github.com/EagerApps/SmartLineHeight.git"
   },
   "author": "Eager",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EagerApps/Readable/issues"
+    "url": "https://github.com/EagerApps/SmartLineHeight/issues"
   },
-  "homepage": "https://github.com/EagerApps/Readable#readme",
+  "homepage": "https://github.com/EagerApps/SmartLineHeight#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "6.8.0",
