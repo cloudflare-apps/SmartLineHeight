@@ -1,19 +1,17 @@
 "use strict";
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 (function () {
   if (!window.addEventListener) return; // Check for IE9+
 
   var PHI = (1 + Math.sqrt(5)) / 2; // 1.61803398874989 or "The Golden Ratio"
   var PHI_PRIME = 1 / (2 * PHI);
+  var SELECTORS = "address, blockquote, footer, h1, h2, h3, h4, h5, h6, header, li, q, p";
 
   var loadingStyle = document.createElement("style");
 
   loadingStyle.innerHTML = "\n    body, body * {\n      color: transparent !important;\n    }\n  ";
 
   var previousElements = [];
-  var options = INSTALL_OPTIONS;
 
   function calcBaseLineHeight(fontSize, width) {
     var result = PHI - PHI_PRIME * (1 - width / Math.pow(fontSize * PHI, 2));
@@ -22,13 +20,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }
 
   function updateElements() {
-    var elements = options.selectors.map(function (entry) {
-      return document.querySelectorAll(entry.selector);
-    }).reduce(function (elements, subElements) {
-      elements.push.apply(elements, _toConsumableArray(subElements));
-
-      return elements;
-    }, []);
+    var elements = Array.prototype.slice.call(document.querySelectorAll(SELECTORS));
 
     elements.forEach(function (element) {
       var fontSize = parseFloat(document.defaultView.getComputedStyle(element).fontSize);

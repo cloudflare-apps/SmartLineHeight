@@ -3,6 +3,7 @@
 
   const PHI = (1 + Math.sqrt(5)) / 2 // 1.61803398874989 or "The Golden Ratio"
   const PHI_PRIME = 1 / (2 * PHI)
+  const SELECTORS = "address, blockquote, footer, h1, h2, h3, h4, h5, h6, header, li, q, p"
 
   const loadingStyle = document.createElement("style")
 
@@ -13,7 +14,6 @@
   `
 
   let previousElements = []
-  let options = INSTALL_OPTIONS
 
   function calcBaseLineHeight(fontSize, width) {
     const result = PHI - PHI_PRIME * (1 - width / Math.pow(fontSize * PHI, 2))
@@ -22,13 +22,7 @@
   }
 
   function updateElements() {
-    const elements = options.selectors
-      .map(entry => document.querySelectorAll(entry.selector))
-      .reduce((elements, subElements) => {
-        elements.push(...subElements)
-
-        return elements
-      }, [])
+    const elements = Array.prototype.slice.call(document.querySelectorAll(SELECTORS))
 
     elements.forEach(element => {
       const fontSize = parseFloat(document.defaultView.getComputedStyle(element).fontSize)
