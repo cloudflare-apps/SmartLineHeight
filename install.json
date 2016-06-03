@@ -2,6 +2,10 @@
   "resources": {
     "head": [
       {
+        "type": "style",
+        "src": "./app.css"
+      },
+      {
         "type": "script",
         "src": "./build/app.js"
       }
@@ -9,12 +13,7 @@
     "body": []
   },
   "preview": {
-    "handlers": [
-      {
-        "options": ["*"],
-        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
-      }
-    ]
+    "handlers": []
   },
   "options": {}
 }
